@@ -1,0 +1,257 @@
+@font-face {
+  font-family: 'Pretendard';
+  src: url('./font/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Pretendard';
+  src: url('./font/Pretendard-Medium.woff') format('woff');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Pretendard';
+  src: url('./font/Pretendard-SemiBold.woff') format('woff');
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'Pretendard';
+  src: url('./font/Pretendard-Bold.woff') format('woff');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('./font/Outfit-Regular.woff') format('woff');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Outfit';
+  src: url('./font/Outfit-Medium.woff') format('woff');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Outfit';
+  src: url('./font/Outfit-SemiBold.woff') format('woff');
+  font-weight: 600;
+}
+
+:root{
+  --text: #1a191c;
+  --light-text: #4d4b50;
+  --main: #7e57ff;
+  --dark-main: #6239e6;
+  --sub: #44ec9d;
+  --sub-font: #00a759;
+  --sub2: #64d8f4;
+  --background: #f0f0f0;
+  --light-gray: #eaeaea;
+  --dark-gray: #7d7d7d;
+  --solid: #e0e0e0;
+}
+
+
+body{
+  margin: 0;
+  font-family: 'Outfit', 'Pretendard';
+  color: var(--text);
+}
+h2, h3, h4, h5, ul, li, p{
+  margin: 0;
+  padding: 0;
+}
+ul{list-style: none;}
+h2{
+  font-size: 52px;
+  line-height: 72px;
+}
+h3{
+  font-size: 42px;
+  line-height: 62px;
+}
+h4{
+  font-size: 32px;
+  line-height: 52px;
+}
+h5{
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 42px;
+  color: var(--light-text);
+}
+p{
+  font-size: 16px;
+  line-height: 30px;
+}
+button{
+  font-family: 'Outfit', 'Pretendard';
+  font-size: 16px;
+  font-weight: 500;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 10px;
+  background: var(--main);
+  color: #fff;
+  transition: 0.25s;
+}
+button:hover{
+  background: var(--dark-main);
+}
+.small{
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+.login{
+  font-size: 16px;
+  padding: 10px 20px;
+  background: none;
+  border: 1.5px solid var(--main);
+  color: var(--main);
+  border-radius: 10px;
+}
+.login:hover{
+  background: var(--main);
+  color: #fff;
+}
+.wrap{
+  width: 100%;
+}
+
+
+/* 
+========================================
+=============== HomeView ===============
+========================================
+*/
+
+/* header */
+header{
+  display: flex;
+  justify-content: space-between;
+}
+header .leftMenu{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100vh;
+  background: var(--background);
+  border-right: 1px solid var(--solid);
+  padding: 30px 25px;
+  box-sizing: border-box;
+  z-index: 99;
+}
+header .leftMenu li{
+  height: 45px;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  transition: 0.25s;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+header .leftMenu li:first-child{
+  margin-bottom: 30px;
+}
+header .leftMenu li:last-child{
+  margin-top: 30px;
+}
+header .leftMenu li.active{
+  background: var(--solid);
+}
+header .leftMenu li.active i{
+  color: var(--light-text);
+}
+header .leftMenu li.active p{
+  color: var(--text);
+}
+header .leftMenu li:not(:first-child, :last-child):hover{
+  background: var(--solid);
+}
+header .leftMenu li:hover i{
+  color: var(--light-text);
+}
+header .leftMenu li:hover p{
+  color: var(--text);
+}
+header .leftMenu li i{
+  font-size: 20px;
+  margin-right: 20px;
+  color: #acacac;
+  transition: 0.25s;
+}
+header .leftMenu li p{
+  color: #616161;
+  font-weight: 500;
+  transition: 0.25s;
+}
+.logo img{
+  width: 140px;
+}
+.rightMenu{
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: calc(100% - 300px);
+  height: 70px;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  padding: 0 40px;
+  border-bottom: 1px solid var(--background);
+}
+.rightMenu li{
+  display: flex;
+}
+.rightMenu li p{
+  margin-left: 30px;
+  font-size: 23px;
+}
+
+
+/* content */
+.content{
+  margin: 150px 0 0 400px;
+  padding-right: 100px;
+}
+.main .mainMenu{
+  width: 100%;
+  margin-top: 70px;
+  display: flex;
+  justify-content: space-between;
+}
+.main .mainMenu li{
+  width: 500px;
+  height: 400px;
+  margin-right: 20px;
+  border-radius: 30px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 3px 20px rgba(26, 25, 28, 0.13);
+  transition: 0.25s;
+}
+.main .mainMenu li:last-child{
+  margin-right: 0;
+}
+.main .mainMenu li:hover{
+  transform: scale(0.96);
+}
+.main .mainMenu li img{
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+.main .mainMenu li p{
+  padding: 15px 30px;
+  font-size: 20px;
+  font-weight: 500;
+}
+.main .mainMenu li p span{
+  display: block;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--light-text);
+}
+.main .mainMenu li p span:first-child{
+  margin-top: 10px;
+}

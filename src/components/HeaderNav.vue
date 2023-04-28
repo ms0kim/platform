@@ -1,29 +1,55 @@
 <script>
+  import router from '../router';
+
+  export default {
+    data() {
+      return {
+        menus: [
+          {
+            path: "/",
+            icon: "ri-home-4-line",
+            name: "Home",
+          },
+          {
+            path: "/image",
+            icon: "ri-image-line",
+            name: "Ai Image Upscale",
+          },
+          {
+            path: "/video",
+            icon: "ri-movie-2-line",
+            name: "Ai Video Upscale",
+          },
+          {
+            path: "/streaming",
+            icon: "ri-live-line",
+            name: "Ai Eco Streaming",
+          },
+          {
+            path: "/guide",
+            icon: "ri-booklet-line",
+            name: "가이드 확인하기"
+          } 
+        ]
+      }
+    },
+    methods: {
+      isActive(idx) {
+          return this.menus[idx].path[1] === this.$route.path[1]
+      },
+    }
+  }
 </script>
 
 <template>
   <header>
     <ul class="leftMenu">
       <li class="logo"><img src="../assets/media/pikavue_logo.svg" alt=""></li>
-      <li class="active">
-        <i class="ri-home-4-line"></i>
-        <p>Home</p>
-      </li>
-      <li>
-        <i class="ri-image-line"></i>
-        <p>Ai Image Upscale</p>
-      </li>
-      <li>
-        <i class="ri-movie-2-line"></i>
-        <p>Ai Video Upscale</p>
-      </li>
-      <li>
-        <i class="ri-live-line"></i>
-        <p>Ai Eco Streaming</p>
-      </li>
-      <li>
-        <i class="ri-booklet-line"></i>
-        <p>가이드 확인하기</p>
+      <li v-for="(menu, idx) in menus" :key="idx" :class="{active: isActive(idx)}">
+        <router-link :to="menu.path">
+          <i :class="menu.icon"></i>
+          <p>{{ menu.name }}</p>
+        </router-link>
       </li>
       <li>
         <button>지금 업로드 하기</button>

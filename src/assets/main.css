@@ -21,18 +21,23 @@
 
 @font-face {
   font-family: 'Outfit';
-  src: url('./font/Outfit-Regular.woff') format('woff');
+  src: url('font/Outfit-Light.woff') format('woff');
   font-weight: 400;
 }
 @font-face {
   font-family: 'Outfit';
-  src: url('./font/Outfit-Medium.woff') format('woff');
+  src: url('./font/Outfit-Regular.woff') format('woff');
   font-weight: 500;
 }
 @font-face {
   font-family: 'Outfit';
-  src: url('./font/Outfit-SemiBold.woff') format('woff');
+  src: url('./font/Outfit-Medium.woff') format('woff');
   font-weight: 600;
+}
+@font-face {
+  font-family: 'Outfit';
+  src: url('./font/Outfit-SemiBold.woff') format('woff');
+  font-weight: 700;
 }
 
 :root{
@@ -45,7 +50,9 @@
   --sub2: #64d8f4;
   --background: #f0f0f0;
   --light-gray: #eaeaea;
+  --gray: #acacac;
   --dark-gray: #7d7d7d;
+  --dark-gray2: #616161;
   --solid: #e0e0e0;
 }
 
@@ -54,6 +61,11 @@ body{
   margin: 0;
   font-family: 'Outfit', 'Pretendard';
   color: var(--text);
+}
+a{
+  text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 h2, h3, h4, h5, ul, li, p{
   margin: 0;
@@ -92,6 +104,7 @@ button{
   background: var(--main);
   color: #fff;
   transition: 0.25s;
+  cursor: pointer;
 }
 button:hover{
   background: var(--dark-main);
@@ -116,15 +129,26 @@ button:hover{
 .wrap{
   width: 100%;
 }
+.content{
+  margin: 100px 0 0 400px;
+  padding-right: 100px;
+}
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.25s ease;
+}
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
 
 
 /* 
 ========================================
-=============== HomeView ===============
+================== nav =================
 ========================================
 */
 
-/* header */
 header{
   display: flex;
   justify-content: space-between;
@@ -136,25 +160,29 @@ header .leftMenu{
   width: 300px;
   height: 100vh;
   background: var(--background);
+  box-shadow: 0 0 10px #cfcfcf6f;
   border-right: 1px solid var(--solid);
   padding: 30px 25px;
   box-sizing: border-box;
   z-index: 99;
 }
 header .leftMenu li{
+  width: 100%;
   height: 45px;
   display: flex;
   align-items: center;
-  padding: 0 15px;
   transition: 0.25s;
   margin-bottom: 10px;
   border-radius: 10px;
+  box-sizing: border-box;
 }
 header .leftMenu li:first-child{
   margin-bottom: 30px;
+  padding: 0 15px;
 }
 header .leftMenu li:last-child{
   margin-top: 30px;
+  padding: 0 15px;
 }
 header .leftMenu li.active{
   background: var(--solid);
@@ -174,16 +202,24 @@ header .leftMenu li:hover i{
 header .leftMenu li:hover p{
   color: var(--text);
 }
+header .leftMenu li a{
+  width: 100%;
+  height: 100%;
+  padding: 0 15px;
+}
 header .leftMenu li i{
   font-size: 20px;
   margin-right: 20px;
-  color: #acacac;
+  color: var(--gray);
   transition: 0.25s;
 }
 header .leftMenu li p{
-  color: #616161;
-  font-weight: 500;
+  color: var(--dark-gray2);
+  font-weight: 600;
   transition: 0.25s;
+}
+header .leftMenu li button{
+  width: 100%;
 }
 .logo img{
   width: 140px;
@@ -192,8 +228,10 @@ header .leftMenu li p{
   position: fixed;
   top: 0;
   right: 0;
+  background: #ffffff79;
+  backdrop-filter: blur(5px);
   width: calc(100% - 300px);
-  height: 70px;
+  height: 50px;
   display: flex;
   justify-content: right;
   align-items: center;
@@ -204,16 +242,19 @@ header .leftMenu li p{
   display: flex;
 }
 .rightMenu li p{
-  margin-left: 30px;
-  font-size: 23px;
+  margin-left: 20px;
+  font-size: 20px;
 }
 
 
-/* content */
-.content{
-  margin: 150px 0 0 400px;
-  padding-right: 100px;
-}
+/* 
+========================================
+================= Home =================
+========================================
+*/
+
+
+/* home main */
 .main .mainMenu{
   width: 100%;
   margin-top: 70px;
@@ -254,4 +295,395 @@ header .leftMenu li p{
 }
 .main .mainMenu li p span:first-child{
   margin-top: 10px;
+}
+
+
+/* 
+========================================
+============= image, video =============
+========================================
+*/
+
+.imageHeader{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.imageHeader h2{
+  font-size: 40px;
+}
+.imageHeader .btns{
+  width: 260px;
+  display: flex;
+  justify-content: space-between;
+}
+.imageHeader .btns .headerBtn{
+  padding: 12px 20px;
+}
+.imageHeader>.btns>button:first-child{
+  background: none;
+  border: 1.5px solid var(--main);
+  color: var(--main);
+}
+.imageHeader>.btns>button:first-child:hover{
+  background: var(--main);
+  color: #fff;
+}
+.subMenu{
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.subMenu>p i{
+  display: inline-block;
+  margin-right: 8px;
+}
+.subMenu p{
+  display: flex;
+  align-items: center;
+}
+.subMenu i{
+  display: inline-block;
+  padding-top: 2px;
+  font-size: 22px;
+}
+.subMenu div{
+  width: 65px;
+  display: flex;
+  justify-content: space-between;
+}
+.lmageList{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  box-sizing: border-box;
+}
+.lmageList li{
+  width: 100%;
+  height: 280px;
+  background: var(--background);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+.lmageList li .check,
+.lmageList li .file{
+  position: absolute;
+  right: 15px;
+  color: #fff;
+  background: #1a191c68;
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  font-size: 14px;
+  padding: 4px 8px;
+}
+.lmageList li .check{
+  top: 15px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.lmageList li .check i{
+  display: inline-block;
+  margin-right: 4px;
+  font-size: 18px;
+  padding-top: 2px;
+}
+.lmageList li .file{
+  top: 150px;
+}
+.lmageList li .file b{
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 6px;
+  background: var(--sub);
+}
+.lmageList li img{
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+.lmageList li .text{
+  padding: 10px 20px;
+  color: var(--light-text);
+  position: relative;
+}
+.lmageList li .text>i{
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+}
+.lmageList li .text div{
+  width: 100%;
+}
+.lmageList li .text div .title{
+  display: flex;
+  justify-content: space-between;
+}
+.lmageList li .text div .title span{
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--dark-gray);
+}
+.lmageList li .text h5{
+  line-height: 30px;
+  font-size: 20px;
+}
+.lmageList li .text p{
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.lmageList li .text p span{
+  display: inline-block;
+  width: 100%;
+  height: 5px;
+  background: #d7d7d7;
+  margin-left: 10px;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.lmageList li .text p span::before{
+  content: '';
+  height: 100%;
+  width: 30%;
+  background: var(--light-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.lmageList li .text i{
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+
+/* page */
+.pageBtns{
+  text-align: center;
+  margin: 25px 0 30px;
+}
+.pageBtns button,
+.pageBtns span{
+  padding: 5px 10px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1.5px solid var(--main);
+  color: var(--main);
+  transition: 0.25s;
+}
+.pageBtns button{
+  border-radius: 5px;
+  background: none;
+}
+.pageBtns button:hover,
+.pageBtns span:hover{
+  background: var(--main);
+  color: #fff;
+}
+.pageBtns .prev{border-radius: 5px 0 0 5px;}
+.pageBtns .next{border-radius: 0 5px 5px 0;}
+.pageBtns span{border-left: none;}
+.pageBtns span.active{
+  background: var(--main);
+  color: #fff;
+}
+.pageBtns span:last-of-type{border-right: none;}
+
+
+/* upload */
+.uploadModal{
+  width: 500px;
+  height: auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: var(--background);
+  box-shadow: 0 20px 20px #7c7c7c4c;
+  border-radius: 20px;
+  padding: 20px 35px 35px;
+  box-sizing: border-box;
+  z-index: 9999;
+}
+.uploadModal h5{
+  color: var(--dark-gray);
+  font-size: 20px;
+}
+.back{
+  width: 100%;
+  height: 100vh;
+  background: #1a191c34;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+.preview{
+  width: 100%;
+  height: 250px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin: 10px 0 20px;
+  text-align: center;
+  transition: 0.25s;
+  cursor: pointer;
+}
+.preview:hover{
+  transform: scale(0.96);
+}
+.preview i{
+  display: block;
+  font-size: 40px;
+  color: var(--main);
+  margin-bottom: 10px;
+  transition: 0.25s;
+}
+.preview p{
+  font-weight: 500;
+  color: var(--light-text);
+  line-height: 24px;
+  transition: 0.25s;
+}
+.preview span{
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--dark-gray);
+  transition: 0.25s;
+}
+.modalBottom{
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+.modalBottom .modalBtns{
+  width: inherit;
+  height: auto;
+  display: flex;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+.modalBottom .modalBtns p{
+  color: var(--gray);
+  font-weight: 500;
+  padding-bottom: 3px;
+  margin-right: 20px;
+  transition: 0.25s;
+  cursor: pointer;
+  position: relative;
+}
+.modalBottom .modalBtns p:hover{
+  color: var(--main);
+}
+.modalBottom .modalBtns p::before{
+  content: '';
+  width: 100%;
+  height: 1.5px;
+  border-radius: 20px;
+  background: var(--main);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  transition: 0.25s;
+}
+.modalBottom .modalBtns p:hover::before{
+  opacity: 1;
+}
+.modalBottom .modalBtns p.active{
+  color: var(--main);
+  position: relative;
+  cursor: default;
+}
+.modalBottom .modalBtns p.active::before{
+  opacity: 1;
+}
+.modalBottom i{
+  margin-right: 7px;
+}
+.modalBottom .imgMenu{
+  width: 100%;
+  padding-top: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+.modalBottom .imgMenu button{
+  width: 50%;
+  padding: 15px 0;
+  margin-right: 20px;
+  background: var(--solid);
+  color: var(--dark-gray);
+  border: 1.5px solid var(--solid);
+}
+.modalBottom .imgMenu button:hover{
+  border: 1.5px solid var(--main);
+  color: var(--main);
+}
+.modalBottom .imgMenu button:last-child{
+  margin-right: 0;
+}
+.modalBottom .imgMenu button.active{
+  border: 1.5px solid var(--main);
+  color: var(--main);
+}
+.modalBottom .solid{
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid var(--solid);
+  margin: 20px 0;
+}
+.modalBottom .up{
+  width: 100%;
+  padding: 15px 25px;
+}
+input[type=range]{
+  appearance: auto;
+	-webkit-appearance: none;
+	background: var(--background);
+  border-radius: 30px;
+  height: 5px;
+}
+input[type=range]:focus{
+  outline: none;
+}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--main);
+}
+.filterSlide{
+  padding: 15px 0;
+  margin-right: 20px;
+  background: var(--solid);
+  color: var(--dark-gray);
+  border: 1.5px solid var(--solid);
+  transition: 0.25s;
+  border-radius: 10px;
+  padding: 10px 10px;
+  text-align: center;
+  box-sizing: border-box;
+}
+.filterSlide span{
+  display: block;
+}
+.filterSlide:focus-within{
+  border: 1.5px solid var(--main);
+  color: var(--main);
 }

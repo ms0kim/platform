@@ -41,6 +41,13 @@
 }
 
 :root{
+  --light: #bae2f8;
+  --blue: #0097e0;
+  --dark-blue: #016ff6;
+  --back: #03121a;
+  --light-txt: #989c9e;
+  --light-back: #f7f7f7;
+
   --text: #1a191c;
   --light-text: #4d4b50;
   --main: #7e57ff;
@@ -60,7 +67,8 @@
 body{
   margin: 0;
   font-family: 'Outfit', 'Pretendard';
-  color: var(--text);
+  color: var(--back);
+  background: var(--light-back);
 }
 a{
   text-decoration: none;
@@ -101,13 +109,13 @@ button{
   padding: 15px 25px;
   border: none;
   border-radius: 10px;
-  background: var(--main);
+  background: var(--blue);
   color: #fff;
   transition: 0.25s;
   cursor: pointer;
 }
 button:hover{
-  background: var(--dark-main);
+  background: var(--dark-blue);
 }
 .small{
   font-size: 16px;
@@ -118,19 +126,19 @@ button:hover{
   font-size: 16px;
   padding: 10px 20px;
   background: none;
-  border: 1.5px solid var(--main);
+  border: 1.5px solid var(--blue);
   color: var(--main);
   border-radius: 10px;
 }
 .login:hover{
-  background: var(--main);
+  background: var(--blue);
   color: #fff;
 }
 .wrap{
   width: 100%;
 }
 .content{
-  margin: 100px 0 0 400px;
+  margin: 80px 0 0 300px;
   padding-right: 100px;
 }
 .v-enter-active,
@@ -157,50 +165,50 @@ header .leftMenu{
   position: fixed;
   top: 0;
   left: 0;
-  width: 300px;
+  width: 270px;
   height: 100vh;
-  background: var(--background);
-  box-shadow: 0 0 10px #cfcfcf6f;
-  border-right: 1px solid var(--solid);
-  padding: 30px 25px;
+  background: var(--back);
   box-sizing: border-box;
   z-index: 99;
 }
+header .leftMenu .logo{
+  margin: 30px;
+}
+header .leftMenu .logo img{
+  width: 160px;
+}
 header .leftMenu li{
   width: 100%;
-  height: 45px;
+  height: 40px;
   display: flex;
   align-items: center;
   transition: 0.25s;
   margin-bottom: 10px;
   border-radius: 10px;
   box-sizing: border-box;
+  padding-left: 20px;
+  position: relative;
 }
-header .leftMenu li:first-child{
-  margin-bottom: 30px;
-  padding: 0 15px;
-}
-header .leftMenu li:last-child{
-  margin-top: 30px;
-  padding: 0 15px;
-}
-header .leftMenu li.active{
-  background: var(--solid);
-}
-header .leftMenu li.active i{
-  color: var(--light-text);
+header .leftMenu li::before{
+  content: '';
+  width: 5px;
+  height: 70%;
+  background: #fff;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) translateX(-20px);
+  transition: 0.25s;
 }
 header .leftMenu li.active p{
-  color: var(--text);
+  color: #fff;
 }
-header .leftMenu li:not(:first-child, :last-child):hover{
-  background: var(--solid);
-}
-header .leftMenu li:hover i{
-  color: var(--light-text);
+header .leftMenu li:hover::before,
+header .leftMenu li.active::before{
+  transform: translateY(-50%) translateX(0);
 }
 header .leftMenu li:hover p{
-  color: var(--text);
+  color: #fff;
 }
 header .leftMenu li a{
   width: 100%;
@@ -214,36 +222,72 @@ header .leftMenu li i{
   transition: 0.25s;
 }
 header .leftMenu li p{
-  color: var(--dark-gray2);
+  color: var(--light-txt);
   font-weight: 600;
   transition: 0.25s;
 }
 header .leftMenu li button{
   width: 100%;
 }
-.logo img{
-  width: 140px;
+header .leftMenu .guide{
+  padding-left: 35px;
+  padding-top: 8px;
+  font-weight: 500;
 }
+header .leftMenu .guide:hover i,
+header .leftMenu .guide:hover p{
+  color: var(--light);
+}
+header .leftMenu .guide i{
+  color: var(--blue);
+  margin-right: 10px;
+  transition: 0.25s;
+}
+header .leftMenu .guide p{
+  color: var(--blue);
+  transition: 0.25s;
+}
+header .leftMenu .lang{
+  position: absolute;
+  bottom: 30px;
+  left: 35px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  color: var(--light-txt);
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.25s;
+}
+header .leftMenu .lang i{
+  margin-right: 10px;
+}
+header .leftMenu .lang:hover{
+  color: #fff;
+}
+
 .rightMenu{
   position: fixed;
   top: 0;
   right: 0;
-  background: #ffffff79;
-  backdrop-filter: blur(5px);
-  width: calc(100% - 300px);
-  height: 50px;
+  background: #fff;
+  width: calc(100% - 270px);
   display: flex;
   justify-content: right;
   align-items: center;
-  padding: 0 40px;
+  padding: 0 30px;
   border-bottom: 1px solid var(--background);
 }
 .rightMenu li{
   display: flex;
+  padding: 10px 0;
 }
 .rightMenu li p{
   margin-left: 20px;
   font-size: 20px;
+}
+.rightMenu .user{
+  border-left: 1px solid var(--background);
 }
 
 

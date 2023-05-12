@@ -7,29 +7,28 @@
         menus: [
           {
             path: "/",
-            icon: "ri-home-4-line",
             name: "Home",
           },
           {
             path: "/image",
-            icon: "ri-image-line",
-            name: "Ai Image Upscale",
+            name: "Pikavue Ai Image",
           },
           {
             path: "/video",
-            icon: "ri-movie-2-line",
-            name: "Ai Video Upscale",
+            name: "Pikavue Ai Video",
           },
           {
-            path: "/streaming",
-            icon: "ri-live-line",
-            name: "Ai Eco Streaming",
+            path: "/gdfengancer",
+            name: "GDFenhancer",
           },
           {
-            path: "/guide",
-            icon: "ri-booklet-line",
-            name: "가이드 확인하기"
-          } 
+            path: "/gdfplay",
+            name: "GDFplay",
+          },
+          {
+            path: "/forum",
+            name: "Forum",
+          },
         ]
       }
     },
@@ -43,23 +42,35 @@
 
 <template>
   <header>
-    <ul class="leftMenu">
-      <li class="logo"><img src="../assets/media/pikavue_logo.svg" alt=""></li>
-      <li v-for="(menu, idx) in menus" :key="idx" :class="{active: isActive(idx)}">
-        <router-link :to="menu.path">
-          <i :class="menu.icon"></i>
-          <p>{{ menu.name }}</p>
-        </router-link>
-      </li>
-      <li>
-        <button>지금 업로드 하기</button>
-      </li>
-    </ul>
+    <div class="leftMenu">
+      <div class="logo"><img src="../assets/media/logo.svg" alt=""></div>
+      <ul>
+        <li v-for="(menu, idx) in menus" :key="idx" :class="{active: isActive(idx)}">
+          <router-link :to="menu.path">
+            <p>{{ menu.name }}</p>
+          </router-link>
+        </li>
+      </ul>
+      <div class="guide">
+        <a href="">
+          <i class="ri-book-line"></i>
+          <p>가이드 확인하기</p>
+        </a>
+      </div>
+      <div class="lang">
+        <i class="ri-global-line"></i>
+        <p>Languages</p>
+      </div>
+    </div>
     <ul class="rightMenu">
       <li>
-        <p><i class="ri-search-line"></i></p>
+        <p><i class="ri-notification-4-line"></i></p>
         <p><i class="ri-customer-service-2-line"></i></p>
-        <p><i class="ri-user-line"></i></p>
+      </li>
+      <li class="user">
+        <div></div>
+        <p>song</p>
+        <i class="ri-arrow-down-s-line"></i>
       </li>
     </ul>
   </header>
